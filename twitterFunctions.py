@@ -8,7 +8,7 @@ def setup(file = 'data/french_tweets.json'):
     
     def process_row(row):
         try:
-            js = json.loads(row)
+            js = json.loads(row.lower())
             hashtags = [ht['text'] for ht in js['entities']['hashtags']]
             emoji = [] # put Devin's function here
             return js['created_at'], js['text'], hashtags, emoji
